@@ -1,9 +1,10 @@
 .entrada-detalle-wrap {
-  padding: 2rem 1.5rem 4rem;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 5vw, 2rem);
   min-height: 60vh;
 }
 
 .entrada-detalle {
+  width: 80%;
   max-width: 720px;
   margin: 0 auto;
 }
