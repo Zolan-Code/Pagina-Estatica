@@ -1,0 +1,51 @@
+:root {
+  --crema: #faf6f1;
+  --crema-oscuro: #f0e9e0;
+  --caramelo: #b8860b;
+  --caramelo-oscuro: #8b6914;
+  --cafe: #5c4033;
+  --cafe-claro: #8b7355;
+  --texto: #2c2419;
+  --texto-suave: #6b5d4f;
+  --blanco: #fff;
+  --sombra: rgba(92, 64, 51, 0.08);
+  --sombra-hover: rgba(92, 64, 51, 0.15);
+  --fuente-titulo: "Cormorant Garamond", Georgia, serif;
+  --fuente-texto: "Outfit", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  color: var(--texto);
+  background-color: var(--crema);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--caramelo);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--caramelo-oscuro);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

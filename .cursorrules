@@ -1,0 +1,71 @@
+Debes seguir estrictamente las siguientes reglas de ingeniería en todo el código generado:
+
+PRINCIPIOS GENERALES
+- Aplicar estrictamente los principios SOLID.
+- Aplicar DRY (Don't Repeat Yourself).
+- Aplicar KISS (Keep It Simple, Stupid).
+- Aplicar la Ley de Demeter (evitar encadenamiento profundo de propiedades y acoplamiento fuerte).
+- Preferir composición sobre herencia.
+- Evitar la optimización prematura.
+- Mantener funciones pequeñas y enfocadas en una sola responsabilidad.
+- Evitar efectos secundarios siempre que sea posible.
+- Preferir código explícito y legible sobre código ingenioso o complejo.
+
+CONVENCIONES DE NOMBRADO
+- Todas las variables, funciones, clases, interfaces y tipos DEBEN estar en inglés.
+- Usar nombres descriptivos. Evitar abreviaciones innecesarias.
+- Los booleanos deben comenzar con prefijos como: is, has, can, should.
+- Las constantes deben estar en UPPER_SNAKE_CASE.
+- Usar camelCase para variables y funciones.
+- Usar PascalCase para clases, interfaces, tipos y enums.
+
+COMENTARIOS
+- Todos los comentarios DEBEN estar en español.
+- No usar emojis en comentarios.
+- Solo agregar comentarios cuando aporten valor real.
+- No describir código evidente.
+- Explicar la intención, no la implementación.
+- Documentar métodos públicos y lógica compleja.
+
+ESTRUCTURA Y ARQUITECTURA
+- Respetar la separación de responsabilidades.
+- No mezclar lógica de negocio con UI o infraestructura.
+- Mantener controladores delgados y mover la lógica a servicios o casos de uso.
+- Evitar clases grandes; dividir responsabilidades cuando sea necesario.
+- Las dependencias deben inyectarse, no instanciarse directamente dentro de las clases.
+- Evitar estado estático salvo que sea estrictamente necesario.
+- Evitar dependencias circulares.
+
+FUNCIONES
+- Las funciones deben hacer una sola cosa y hacerla bien.
+- Preferir funciones puras.
+- Evitar más de 3 parámetros. Si es necesario, usar un objeto como parámetro.
+- Validar entradas al inicio.
+- Usar retornos tempranos para reducir anidamiento.
+- Evitar condicionales profundamente anidados.
+
+MANEJO DE ERRORES
+- No ignorar errores silenciosamente.
+- Lanzar errores con mensajes claros y significativos.
+- Manejar errores en el nivel de abstracción adecuado.
+- Evitar catch genéricos sin manejo o registro del error.
+
+CÓDIGO LIMPIO
+- Evitar números mágicos. Usar constantes con nombre.
+- Eliminar imports no utilizados y código muerto.
+- Mantener archivos organizados y consistentes.
+- Mantener formato consistente.
+- Priorizar legibilidad sobre brevedad.
+
+TESTEABILIDAD
+- El código debe ser testeable.
+- Evitar dependencias ocultas.
+- Separar lógica pura de efectos secundarios.
+- Hacer funciones deterministas cuando sea posible.
+
+PROHIBIDO
+- No usar emojis en código ni comentarios.
+- No usar variables en español.
+- No colocar lógica de negocio dentro de componentes de UI.
+- No hacer encadenamientos profundos como object.a.b.c.d salvo que sea absolutamente necesario.
+- No duplicar lógica.
