@@ -1,9 +1,28 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+const DURACION_ANIMACION = 500
 
 export default function EntradaVlog({ entrada }) {
+  const [saliendo, setSaliendo] = useState(false)
+  const navigate = useNavigate()
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    if (saliendo) return
+    setSaliendo(true)
+    setTimeout(() => {
+      navigate(`/entrada/${entrada.id}`)
+    }, DURACION_ANIMACION)
+  }
+
   return (
-    <article className="entrada">
-      <Link to={`/entrada/${entrada.id}`} className="entrada-link">
+    <article className={`entrada ${saliendo ? 'entrada--saliendo' : ''}`}>
+      <a
+        href={`/entrada/${entrada.id}`}
+        className="entrada-link"
+        onClick={handleClick}
+      >
         <div className="entrada-imagen-wrap">
           <img src={entrada.imagen} alt="" className="entrada-imagen" />
           <span className="entrada-etiqueta">{entrada.etiqueta}</span>
@@ -14,7 +33,7 @@ export default function EntradaVlog({ entrada }) {
           <p className="entrada-extracto">{entrada.extracto}</p>
           <span className="entrada-leer">Ver entrada →</span>
         </div>
-      </Link>
+      </a>
     </article>
   )
 }

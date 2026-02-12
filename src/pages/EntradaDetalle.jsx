@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { getEntradaById } from '../data/entradas'
 import './EntradaDetalle.css'
@@ -5,6 +6,10 @@ import './EntradaDetalle.css'
 export default function EntradaDetalle() {
   const { id } = useParams()
   const entrada = getEntradaById(id)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [id])
 
   if (!entrada) {
     return <Navigate to="/" replace />

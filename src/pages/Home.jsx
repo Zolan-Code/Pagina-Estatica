@@ -1,8 +1,21 @@
+import { useEffect } from 'react'
 import { entradas } from '../data/entradas'
 import Hero from '../components/Hero'
 import EntradaVlog from '../components/EntradaVlog'
 
-export default function Home() {
+export default function Home({ onAbrirContacto }) {
+
+  // Al llegar desde otra página con hash (ej. /#nosotros), desplazar suavemente a la sección
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const id = hash.slice(1)
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+      }, 0)
+    }
+  }, [])
+
   return (
     <>
       <Hero />
@@ -52,7 +65,13 @@ export default function Home() {
             Estamos en el centro. Horario: Lunes a Sábado 8:00 – 20:00.
             También tomamos pedidos por WhatsApp.
           </p>
-          <a href="#" className="boton">Ver ubicación y contacto</a>
+          <button
+            type="button"
+            className="boton"
+            onClick={onAbrirContacto}
+          >
+            Ver ubicación y contacto
+          </button>
         </div>
       </section>
     </>
