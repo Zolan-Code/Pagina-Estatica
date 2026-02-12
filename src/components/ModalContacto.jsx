@@ -3,6 +3,7 @@ import { contacto } from '../data/contacto'
 import './ModalContacto.css'
 
 export default function ModalContacto({ open, onClose }) {
+  const telefonoLimpio = contacto.telefono.replace(/\s/g, '')
   const numeroWhatsApp = contacto.telefono.replace(/\D/g, '')
 
   useEffect(() => {
@@ -67,10 +68,10 @@ export default function ModalContacto({ open, onClose }) {
             Horario: Lunes a Sábado 8:00 – 20:00
           </p>
           <div className="modal-contacto-tel">
-            <a href={`tel:${contacto.telefono}`} className="modal-contacto-link">
+            <span className="modal-contacto-tel-label">Teléfono</span>
+            <a href={`tel:${telefonoLimpio}`} className="modal-contacto-link">
               {contacto.telefonoDisplay}
             </a>
-            <span className="modal-contacto-tel-label">Teléfono</span>
           </div>
           <a
             href={`https://wa.me/${numeroWhatsApp}`}

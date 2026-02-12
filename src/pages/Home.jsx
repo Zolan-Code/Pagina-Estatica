@@ -1,11 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { entradas } from '../data/entradas'
 import Hero from '../components/Hero'
 import EntradaVlog from '../components/EntradaVlog'
-import ModalContacto from '../components/ModalContacto'
 
-export default function Home() {
-  const [modalContactoAbierto, setModalContactoAbierto] = useState(false)
+export default function Home({ onAbrirContacto }) {
 
   // Al llegar desde otra página con hash (ej. /#nosotros), desplazar suavemente a la sección
   useEffect(() => {
@@ -70,16 +68,12 @@ export default function Home() {
           <button
             type="button"
             className="boton"
-            onClick={() => setModalContactoAbierto(true)}
+            onClick={onAbrirContacto}
           >
             Ver ubicación y contacto
           </button>
         </div>
       </section>
-      <ModalContacto
-        open={modalContactoAbierto}
-        onClose={() => setModalContactoAbierto(false)}
-      />
     </>
   )
 }

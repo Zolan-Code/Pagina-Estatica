@@ -110,22 +110,36 @@
 
 .modal-contacto-tel {
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.modal-contacto-tel-label {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .modal-contacto-link {
-  display: block;
+  display: inline-block;
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--caramelo);
+  text-decoration: none;
+  padding: 0.35rem 0;
+  word-break: break-all;
 }
 
 .modal-contacto-link:hover {
   color: var(--caramelo-oscuro);
 }
 
-.modal-contacto-tel-label {
-  font-size: 0.8rem;
-  color: var(--texto-suave);
+.modal-contacto-link:focus {
+  outline: 2px solid var(--caramelo);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .modal-contacto-whatsapp {
@@ -134,7 +148,47 @@
 }
 
 @media (max-width: 768px) {
+  .modal-contacto-backdrop {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 2rem;
+  }
+
+  .modal-contacto-caja {
+    max-height: 85vh;
+  }
+
+  .modal-contacto-titulo {
+    padding-right: 3rem;
+    font-size: 1.35rem;
+  }
+
   .modal-contacto-mapa {
     height: 200px;
+  }
+
+  .modal-contacto-info {
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  .modal-contacto-dir {
+    font-size: 0.95rem;
+  }
+
+  .modal-contacto-tel {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem;
+    background: var(--crema-oscuro);
+    border-radius: 8px;
+  }
+
+  .modal-contacto-link {
+    font-size: 1.35rem;
+    padding: 0.5rem 0;
+    word-break: break-all;
+    min-height: 2.75rem;
+    line-height: 1.4;
+    display: inline-flex;
+    align-items: center;
   }
 }

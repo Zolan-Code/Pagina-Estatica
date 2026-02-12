@@ -1,3 +1,5 @@
+import videoInicio from '../assets/Video Inicio.mp4'
+
 export default function Hero() {
   return (
     <section className="hero" id="inicio">
@@ -11,7 +13,17 @@ export default function Hero() {
           Recetas, detrás de cámaras y un poco de nuestra pastelería.
         </p>
       </div>
-      <div className="hero-imagen" />
+      <div className="hero-imagen-wrap">
+        <video
+          className="hero-imagen hero-video"
+          src={videoInicio}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-label="Video de bienvenida"
+        />
+      </div>
     </section>
   )
 }

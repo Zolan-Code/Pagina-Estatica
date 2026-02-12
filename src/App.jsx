@@ -1,9 +1,11 @@
+import { useState } from 'react'
 import { Routes, Route, Link, useLocation } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
 import EntradaDetalle from './pages/EntradaDetalle'
+import ModalContacto from './components/ModalContacto'
 
-function Header() {
+function Header({ onAbrirContacto }) {
   const location = useLocation()
   const enInicio = location.pathname === '/'
 
@@ -33,6 +35,13 @@ function Header() {
           <Link to="/#entradas" onClick={(e) => irASeccion(e, 'entradas')}>Entradas</Link>
           <Link to="/#nosotros" onClick={(e) => irASeccion(e, 'nosotros')}>Nosotros</Link>
           <Link to="/#contacto" onClick={(e) => irASeccion(e, 'contacto')}>Contacto</Link>
+          <button
+            type="button"
+            className="nav-pedido"
+            onClick={onAbrirContacto}
+          >
+            ¿Pedido? Escríbenos
+          </button>
         </nav>
       </div>
     </header>
@@ -50,15 +59,21 @@ function Footer() {
 }
 
 function App() {
+  const [modalContactoAbierto, setModalContactoAbierto] = useState(false)
+
   return (
     <>
-      <Header />
+      <Header onAbrirContacto={() => setModalContactoAbierto(true)} />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home onAbrirContacto={() => setModalContactoAbierto(true)} />} />
           <Route path="/entrada/:id" element={<EntradaDetalle />} />
         </Routes>
       </main>
+      <ModalContacto
+        open={modalContactoAbierto}
+        onClose={() => setModalContactoAbierto(false)}
+      />
       <Footer />
     </>
   )
