@@ -16,6 +16,11 @@ html {
   --sombra-hover: rgba(92, 64, 51, 0.15);
   --fuente-titulo: "Cormorant Garamond", Georgia, serif;
   --fuente-texto: "Outfit", system-ui, sans-serif;
+  /* Layout adaptativo: contenido al 80% del viewport, con tope máximo */
+  --ancho-contenido: 80%;
+  --ancho-maximo: 1100px;
+  --padding-lateral: clamp(1rem, 5vw, 2rem);
+  --padding-vertical: clamp(2rem, 4vw, 4rem);
 }
 
 * {
